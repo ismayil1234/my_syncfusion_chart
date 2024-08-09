@@ -165,7 +165,10 @@ class CoreTooltipState extends State<CoreTooltip>
       if (renderObject != null &&
           renderObject.attached &&
           renderObject is RenderConstrainedLayoutBuilder) {
-        renderObject.markNeedsPaint();
+        if (startFromZero) {
+          /// dirty hack for re-layouting the tooltip
+          setState(() {});
+        }
       }
     }
   }
