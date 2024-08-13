@@ -1558,7 +1558,9 @@ abstract class ChartSeriesRenderer<T, D> extends RenderBox
   }
 
   num _valueAsNum(int index, D value) {
-    return value as num;
+    num result = num.parse(value);
+    // value as num
+    return result;
   }
 
   num _dateToMilliseconds(int index, D value) {
